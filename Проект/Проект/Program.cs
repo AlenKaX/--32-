@@ -80,7 +80,7 @@ namespace ПР11
         static void Nazv()
         {
             int i, max, min;
-            string s, c = null;
+            string s;
             FileStream f = new FileStream("d://Assort.txt", FileMode.Open);
             StreamReader r = new StreamReader(f);
             Console.WriteLine();
@@ -95,7 +95,7 @@ namespace ПР11
                 max = Convert.ToInt32(w[3]);
                 if ((i > min) && (i < max))
                 {
-                    c = w[0].Replace("_", " ");
+                    string c = w[0].Replace("_", " ");
                     Console.WriteLine(c + " " + w[1]);
                 }
             }
@@ -106,7 +106,7 @@ namespace ПР11
         {
             string s, c;
             int i = 0, k;
-            Double h = 0, a = 999999;
+            Double a = 999999;
             Double[] j = new Double[9999];
             FileStream f = new FileStream("d://Assort.txt", FileMode.Open);
             StreamReader r = new StreamReader(f);
@@ -120,7 +120,7 @@ namespace ПР11
                 s = r.ReadLine();
                 string[] w = s.Split(new char[] { ' ' });
                 k = w[0].IndexOf(c);
-                h = Convert.ToDouble(w[1]);
+                double h = Convert.ToDouble(w[1]);
                 if (k >= 0)
                 {
                     j[i] = h;
@@ -176,9 +176,9 @@ namespace ПР11
                 {
                     i++;
                     d = Convert.ToDouble(w[1]);
-                    dd = dd + d;
+                    dd += d;
                 }
-                dd = dd / i;
+                dd /= i;
             }
             Console.WriteLine("Cредняя стоимость: " + dd);
             Console.WriteLine();
